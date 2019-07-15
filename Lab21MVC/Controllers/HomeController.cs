@@ -14,6 +14,7 @@ namespace Lab21MVC.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.CurrentUser = new NewUser() { UserName = "i  am user" };
             return View();
         }
 
