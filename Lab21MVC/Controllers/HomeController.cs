@@ -14,7 +14,7 @@ namespace Lab21MVC.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.CurrentUser = new NewUser() { UserName = "i  am user" };
+            //    ViewBag.CurrentUser = new NewUser() { UserName = "i  am user" };
             return View();
         }
 
@@ -28,22 +28,18 @@ namespace Lab21MVC.Controllers
             return View();
         }
 
-
-
+        [HttpPost]
         public IActionResult NewUser(NewUser user)
         {
             if (ModelState.IsValid)
             {
-                ViewBag.User = user;
-                return View();
+                return View(user);
             }
             else
             {
-                return View();
+                ViewBag.Error = "You Done Messed Up!";
+                return RedirectToAction("Index");
             }
         }
-
-        
-
-        }
     }
+}
